@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022年度 流体力学II 期末試験問題</title>
+    <style>
+        
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, 'Times New Roman', 'Noto Serif JP', 'Georgia', serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+.exam-meta {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    color: #111;
+}
+h3 {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+p, li {
+    font-size: 14px;
+}
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+li {
+    margin-bottom: 5px;
+}
+blockquote {
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    color: #555;
+    background-color: #f9f9f9;
+    margin: 15px 0;
+    padding: 10px 15px;
+}
+code {
+    font-family: Monaco, Consolas, 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 90%;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.2;
+    overflow-x: auto;
+}
+strong, b {
+    font-weight: normal;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+div[align="center"] {
+    text-align: center;
+    margin: 20px 0;
+}
+div[align="center"] p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+.download-container {
+    text-align: center;
+    margin: 20px 0 30px 0;
+}
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #333;
+    transition: all 0.2s ease;
+}
+.download-btn:hover {
+    background-color: #f4f4f4;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    </style>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="download-container">
+        <a href="./fluid_dynamics_exam2022.pdf" target="_blank" class="download-btn">📄 PDF版問題用紙を表示・ダウンロード</a>
+    </div>
+    <h1>2022年度 流体力学II 期末試験 問題</h1>
+<p><u>実施日:</u> 2022年7月22日<br />
+<u>制限時間:</u> 90分<br />
+<u>満点:</u> 78点<br />
+<u>注意事項:</u>
+- すべての解答は計算過程を含めて詳細に記述すること。
+- 必要に応じて図を描いて説明すること。
+- 物理変数の定義や前提条件をよく確認した上で解答すること。</p>
+<hr />
+<p><u>第1問 (34点)</u></p>
+<p>2次元非圧縮性・渦なし流れにおいて、速度ポテンシャル $\phi(x, y)$ が次の式で与えられている。
+$$\phi(x, y) = ax^3 + bxy^2 + cx^2$$
+ここで、$x, y$ は直交座標を表し、$a, b, c$ は実数の定数である。また、流速の $x$ 方向成分を $u(x, y)$、$y$ 方向成分を $v(x, y)$ とし、これらは速度ポテンシャル $\phi$ を用いて次のように定義されるものとする。
+$$u = \frac{\partial \phi}{\partial x}, \quad v = \frac{\partial \phi}{\partial y}$$</p>
+<div align="center">
+  <img src="images/spiral_flow.png" alt="図1：2次元速度ポテンシャル流れの様子" width="350">
+  <p>図1：2次元速度ポテンシャル流れの様子</p>
+</div>
+
+<p>以下の問いに答えよ。</p>
+<p><u>(a)</u> 流速成分 $u$ および $v$ をそれぞれ $x, y$ および定数 $a, b, c$ を用いて表せ。また、得られた $u$ および $v$ の式に、定数 $a, b, c$ のうちどれがそれぞれ含まれるかを明記せよ。(12点)</p>
+<p><u>(b)</u> 流れの関数 $\psi(x, y)$ が存在し、流速成分 $u, v$ との間で以下の関係式
+$$u = \frac{\partial \psi}{\partial y}, \quad v = -\frac{\partial \psi}{\partial x}$$
+が成り立つための定数 $a, b, c$ に関する整合条件（満たすべき関係式）を求めよ。また、その条件のもとでの流れの関数 $\psi(x, y)$ を求めよ。ただし、積分定数は $C$ を用いよ。(12点)</p>
+<p><u>(c)</u> <u>(b)</u> の整合条件が満たされ、かつ原点 $(0, 0)$ での流速がゼロ（$u(0,0) = 0$ かつ $v(0,0) = 0$）であり、さらに定数 $c$ は <u>$c = 0$</u> であるとする。このとき、流速成分 $u$ および $v$ を定数 $a$ と座標 $x, y$ を用いて表せ。また、流速 $u$ がゼロとなる点 $(X, Y)$ が円 $X^2 + Y^2 = 2$ の上にあるとき、第1象限（$X > 0, Y > 0$）における交点 $(X, Y)$ の座標を求めよ。(4点)</p>
+<p><u>(d)</u> <u>(b)</u> の流れの関数 $\psi(x, y)$ について、原点での値をゼロ（$\psi(0, 0) = 0$）とし、さらに定数 $c$ は <u>$c = 0$</u> であるとする。このとき、流れの関数 $\psi(x, y)$ を定数 $a$ と座標 $x, y$ を用いて表せ。また、第1象限（$x > 0, y > 0$）において、流線 $\psi = 0$ を表す半直線が $y = \sqrt{E}x + D$ の形で表されるとき、定数 $D$ および $E$ の値をそれぞれ求めよ。(6点)</p>
+<p><u>第1問の解答形式:</u>
+- <u>(a)</u>: $u$ および $v$ の数式を明記し、それぞれの式に含まれる定数を箇条書きで示すこと。
+- <u>(b)</u>: 整合条件を示す関係式と、流れの関数 $\psi(x, y)$ の数式を明記すること。
+- <u>(c)</u>: $u, v$ の数式と、交点座標 $(X, Y)$ を <u>$(X, Y) = (\text{数値}, \text{数値})$</u> の形式で示すこと。
+- <u>(d)</u>: $\psi(x, y)$ の数式と、定数 <u>$D$</u>, <u>$E$</u> の数値を明記すること。</p>
+<hr />
+<p><u>第2問 (34点)</u></p>
+<p>一様な主流速度 $U$ の中に置かれた平板上の層流境界層を考える。平板の前縁からの距離を $x$、壁面（平板表面）からの垂直距離を $y$、境界層厚さを $\delta(x)$ とする。境界層内の流速の $x$ 方向成分 $u(x, y)$ の速度分布が、次の2次放物線で近似できるものとする。
+$$\frac{u}{U} = 2\left(\frac{y}{\delta}\right) - \left(\frac{y}{\delta}\right)^2$$</p>
+<div align="center">
+  <img src="images/boundary_layer.png" alt="図2：平板上の二次元定常層流境界層における速度分布" width="550">
+  <p>図2：平板上の二次元定常層流境界層における速度分布</p>
+</div>
+
+<p>以下の問いに答えよ。</p>
+<p><u>(a)</u> 壁面（$y = 0$）におけるせん断応力 $\tau_w$ は、流体の粘度を $\mu$ とすると $\tau_w = \mu \left. \frac{\partial u}{\partial y} \right|_{y=0}$ で定義される。この定義に基づいて $\tau_w$ を計算し、$\mu$, $U$, $\delta$ を用いて表せ。また、$\tau_w$ が流体の密度 $\rho$、粘度 $\mu$、主流速度 $U$、境界層厚さ $\delta$ を用いて
+$$\tau_w = A \rho^B \mu^C U^D \delta^E$$
+と表されるとき、定数 $A, B, C, D, E$ の値をそれぞれ求めよ。(15点)</p>
+<p><u>(b)</u> 運動量厚さ $\theta$ は次式で定義される。
+$$\theta = \int_0^\delta \frac{u}{U}\left(1 - \frac{u}{U}\right) dy$$
+この定義式に速度分布の近似式を代入して積分を実行し、$\theta$ を $\delta$ の関数として求めよ。また、得られた結果が
+$$\theta = \frac{H \times 10 + I}{F \times 10 + G} \delta$$
+の形で表されるとき、各パラメータ $F, G, H, I$（いずれも <u>$0$ から $9$ までの1桁の整数</u>）の値をそれぞれ求めよ。(12点)</p>
+<p><u>(c)</u> 圧力勾配がない場合の平板上の境界層に関するカルマンの運動量積分方程式は次式で与えられる。
+$$\frac{d\theta}{dx} = \frac{\tau_w}{\rho U^2}$$
+<u>(a)</u> および <u>(b)</u> で得られた結果をこの方程式に代入し、境界条件（$x = 0$ で $\delta = 0$）のもとで、境界層厚さ $\delta$ を $x$, $\rho$, $\mu$, $U$ の関数として求めよ。また、比 $\frac{\delta^2}{x^2}$ が、前縁からの距離 $x$ に基づくレイノルズ数 $Re_x = \frac{\rho U x}{\mu}$ を用いて
+$$\frac{\delta^2}{x^2} = (J \times 10 + K) Re_x^{-1}$$
+と表されるとき、パラメータ $J, K$（いずれも <u>$0$ から $9$ までの1桁の整数</u>）の値を求めよ。(4点)</p>
+<p><u>(d)</u> 境界層厚さ $\delta$ と主流速度 $U$ に基づくレイノルズ数 $Re_\delta$ を $Re_\delta = \frac{\rho U \delta}{\mu}$ と定義する。この $Re_\delta$ を、前縁からの距離 $x$ と境界層厚さ $\delta$ のみを用いて表せ。また、層流から乱流への遷移が起こる臨界レイノルズ数が $Re_{\delta, c} = 3.0 \times 10^3$ であるとき、臨界点における比 $\frac{\delta_c}{x_c}$ は
+$$\frac{\delta_c}{x_c} = L.M \times 10^{-N}$$
+と表される。ここで、$\delta_c$ は臨界点における境界層厚さ、$x_c$ は臨界点における平板前縁からの距離である。定数 $L, M, N$（いずれも <u>$0$ から $9$ までの1桁の整数</u>）の値を求めよ。(3点)</p>
+<p><u>第2問の解答形式と指示:</u>
+- 数値入力（マーク形式）について、以下の指示に従って解答すること。
+- <u>(a)</u>: $\tau_w$ の導出過程および最終式を記述し、定数 <u>$A, B, C, D, E$</u> の値をそれぞれ明記すること。
+- <u>(b)</u>: 積分計算の過程を記述し、$\theta$ の式を明記した上で、1桁の整数 <u>$F, G, H, I$</u> の値をそれぞれ明記すること。
+  - 解答例: $\theta = \frac{2}{15}\delta$ の場合、$\theta = \frac{0 \times 10 + 2}{1 \times 10 + 5}\delta$ となるため、<u>$F=1, G=5, H=0, I=2$</u> と答えること。
+- <u>(c)</u>: $\delta$ の導出過程を記述し、$\delta$ の式を明記した上で、1桁の整数 <u>$J, K$</u> の値をそれぞれ明記すること。
+  - 解答例: $\frac{\delta^2}{x^2} = 30 Re_x^{-1}$ の場合、$\frac{\delta^2}{x^2} = (3 \times 10 + 0) Re_x^{-1}$ となるため、<u>$J=3, K=0$</u> と答えること。
+- <u>(d)</u>: $Re_\delta$ を $x, \delta$ で表す式を記述し、比 $\frac{\delta_c}{x_c}$ の計算過程を示した上で、1桁の整数 <u>$L, M, N$</u> の値をそれぞれ明記すること。
+  - 解答例: $\frac{\delta_c}{x_c} = 1.0 \times 10^{-2}$ の場合、<u>$L=1, M=0, N=2$</u> と答えること。</p>
+<hr />
+<p><u>第3問 (10点)</u></p>
+<p>直径 $d$、長さ（高さ） $H$ の2本の円柱（ローター）を備えたローター船が、風速 $U$ の風を受けて海上を一定の速度 $V$ で巡航している。各ローターは回転数 $n$（角速度 $\omega = 2\pi n$）で回転している。</p>
+<div align="center">
+  <img src="images/magnus_effect.png" alt="図3：風を受けるローター（回転円柱）に働く流体力学的な力" width="350">
+  <p>図3：風を受けるローター（回転円柱）に働く流体力学的な力</p>
+</div>
+
+<p><u>(a)</u> 船が真東に進むための推力（揚力）を最大にしたい。ローターが反時計回り（上から見て）に回転しているとき、東向きの推力を最大にするためには、風向（風が吹いてくる方向）は「東、西、南、北」のいずれが良いか。クッタ・ジューコフスキーの定理およびマグヌス効果（円柱周りの循環 $\Gamma = 2\pi R^2 \omega$、ここで $R = d/2$ はローターの半径）の物理的・力学的理由を含めて説明せよ。なお、円柱単位長さあたりの揚力 $L$ は、空気の密度を $\rho$、循環を $\Gamma$、風速を $U$ とすると、$L = -\rho U \Gamma$ として与えられるものとする。 (6点)</p>
+<p><u>(b)</u> 船が巡航することに伴う船が受ける相対的な風向きの変化は、マグナス効果による東向きの推力には影響を与えないものとする。また、船が受ける全抗力 $D$ は、2本のローターによって発生する全推力と釣り合っている。このとき、ローター船の必要回転数 $n$ を求める式は、
+$$n = A \pi^I D^J \rho^K U^L V^M d^N H^O$$
+と表される。クッタ・ジューコフスキーの定理からこの式を導出し、べき定数 $A, I, J, K, L, M, N, O$ を求めよ。ただし、$\rho$ は空気の密度である。 (4点)</p>
+<p><u>第3問の解答形式と指示:</u>
+- <u>(a)</u>: 推力を最大にする風向（「東、西、南、北」のいずれか）を明記し、マグヌス効果とクッタ・ジューコフスキーの定理に基づく物理的・力学的理由を詳細に説明すること。
+- <u>(b)</u>: 必要回転数 $n$ の導出過程を詳細に記述し、べき定数 <u>$A, I, J, K, L, M, N, O$</u> の値をそれぞれ明記すること（小数は分数表記、または有限小数のまま記述してよい）。</p>
+</body>
+</html>
